@@ -1,4 +1,6 @@
 package com.entrevista.api_concessionaria.model;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,13 +16,18 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nome", length = 150)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(name = "perfil", length = 20)
     private String perfil;
 
-    @Column(nullable = false)
+    @Column(name = "area", length = 100)
     private String area;
+
+    @OneToMany
+    @JoinColumn(name = "funcionario_id")
+    private List<Analise> analises;
+
 
 }

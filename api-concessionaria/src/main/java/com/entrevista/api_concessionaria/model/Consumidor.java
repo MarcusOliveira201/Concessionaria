@@ -1,4 +1,6 @@
 package com.entrevista.api_concessionaria.model;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,15 +16,23 @@ public class Consumidor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "cpf", unique = true)
     private String cpf;
 
-    @Column(nullable = false)
+    @Column(name = "email")
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "endereco")
     private String endereco;
+
+    @OneToMany
+    @JoinColumn(name = "consumidor_id")
+    private List<Solicitacao> solicitacoes;
+
+    @OneToMany
+    @JoinColumn(name = "consumidor_id")
+    private List<MetaConsumo> metasConsumo;
 }

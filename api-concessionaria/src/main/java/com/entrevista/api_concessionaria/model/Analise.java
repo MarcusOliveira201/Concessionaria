@@ -1,6 +1,8 @@
 package com.entrevista.api_concessionaria.model;
 
 import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
@@ -18,23 +20,20 @@ public class Analise {
     private Long id;
     
     @ManyToOne
-    @JoinColumn(name = "consumidor_id", nullable = false)
-    private Consumidor consumidor;
+    @JoinColumn(name = "solicitacao_id", nullable = false)
+    private Solicitacao solicitacao;
 
     @ManyToOne
     @JoinColumn(name = "funcionario_id", nullable = false)
     private Funcionario funcionario;
 
-    @Column(nullable = false)
-    private String status;
+    @Column(name ="data_analise")
+    private Date dataAnalise;
 
-    @Column(nullable = false)
-    private LocalDateTime dataAnalise;
-
-    @Column(nullable = false)
+    @Column(name = "parecer")
     private String parecer;
 
-    @Column(nullable = false)
+    @Column(name = "novo_valor_kwh_solicitado")
     private BigDecimal novoValorKwhSolicitado;
 
 }
