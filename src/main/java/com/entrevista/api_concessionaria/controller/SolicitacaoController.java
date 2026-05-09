@@ -29,25 +29,25 @@ public class SolicitacaoController {
     private SolicitacoesService service;
 
     @PostMapping("solicitacoes")
-    public ResponseEntity<SolicitacaoDto> salvarUmaSolicitacao(@Valid @RequestBody SolicitacaoDto dto) {
+    public ResponseEntity<?> salvarUmaSolicitacao(@Valid @RequestBody SolicitacaoDto dto) {
         SolicitacaoDto solicitacaoSalva = service.salvar(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(solicitacaoSalva);
     }
     
     @GetMapping("solicitacoes")
-    public ResponseEntity<List<SolicitacaoDto>> buscarTodas() {
+    public ResponseEntity<?> buscarTodas() {
         List<SolicitacaoDto> solicitacoes = service.buscar();
         return ResponseEntity.ok(solicitacoes);
     }
 
     @GetMapping("solicitacoes/{id}")
-    public ResponseEntity<SolicitacaoDto> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         SolicitacaoDto solicitacao = service.buscarPorId(id);
         return ResponseEntity.ok(solicitacao);
     }
 
     @PostMapping("solicitacoes/{id}/analise")
-    public ResponseEntity<Void> registrarAnalise(@PathVariable Long id,@RequestBody @Valid RegistroAnaliseDto dto) {
+    public ResponseEntity<?> registrarAnalise(@PathVariable Long id,@RequestBody @Valid RegistroAnaliseDto dto) {
         service.registrarAnalise(id, dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

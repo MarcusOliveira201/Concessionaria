@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.entrevista.api_concessionaria.enums.PerfilFuncionario;
 import com.entrevista.api_concessionaria.enums.StatusSolicitacao;
 import com.entrevista.api_concessionaria.enums.TipoSolicitacao;
 import com.entrevista.api_concessionaria.model.Consumidor;
@@ -36,14 +37,14 @@ public class SolicitacaoRepositoryTest {
     public void deveSalvarUmaSolicitacao() {
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
 
         Funcionario funcionario = repoFuncionario.save(Funcionario.builder()
                 .nome("João")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build());
 
@@ -59,7 +60,7 @@ public class SolicitacaoRepositoryTest {
 
         Assertions.assertNotNull(solicitacaoSalva, "A solicitação salva não pode ser nula");
         Assertions.assertNotNull(solicitacaoSalva.getId(), "Deve ter id após save");
-        Assertions.assertEquals("ABERTA", solicitacaoSalva.getStatus());
+        Assertions.assertEquals(StatusSolicitacao.ABERTA, solicitacaoSalva.getStatus());
     }
 
     @Test
@@ -67,14 +68,14 @@ public class SolicitacaoRepositoryTest {
     public void deveAtualizarUmaSolicitacao() {
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
 
         Funcionario funcionario = repoFuncionario.save(Funcionario.builder()
                 .nome("João")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build());
 
@@ -96,7 +97,7 @@ public class SolicitacaoRepositoryTest {
         Solicitacao solicitacaoAtualizada = repo.findById(idParaBusca)
                 .orElseGet(() -> Assertions.fail("Solicitação não encontrada após a atualização"));
 
-        Assertions.assertEquals("EM ANDAMENTO", solicitacaoAtualizada.getStatus());
+        Assertions.assertEquals(StatusSolicitacao.EM_ANALISE, solicitacaoAtualizada.getStatus());
         Assertions.assertEquals("Análise iniciada pelo setor técnico", solicitacaoAtualizada.getRespostaFinal());
         Assertions.assertEquals(idParaBusca, solicitacaoAtualizada.getId());
     }
@@ -106,13 +107,13 @@ public class SolicitacaoRepositoryTest {
     public void deveDeletarUmaSolicitacao() {
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
         Funcionario funcionario = repoFuncionario.save(Funcionario.builder()
                 .nome("João")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build());
 

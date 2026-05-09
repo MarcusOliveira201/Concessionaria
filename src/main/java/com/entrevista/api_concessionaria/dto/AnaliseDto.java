@@ -8,16 +8,15 @@ import java.util.List;
 import com.entrevista.api_concessionaria.model.Analise;
 
 import lombok.Builder;
-import lombok.Data;
 
-@Data
 @Builder
-public class AnaliseDto {
-    private Long id;
-    private Date dataAnalise;
-    private String parecer;
-    private BigDecimal novoValorKwhSolicitado;
-    private Long funcionarioId;
+public record AnaliseDto(
+    Long id,
+    Date dataAnalise,
+    String parecer,
+    BigDecimal novoValorKwhSolicitado,
+    Long funcionarioId
+){
 
     public static AnaliseDto from(Analise analise) {
         if (analise == null) return null;

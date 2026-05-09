@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.entrevista.api_concessionaria.enums.PerfilFuncionario;
 import com.entrevista.api_concessionaria.enums.StatusSolicitacao;
 import com.entrevista.api_concessionaria.enums.TipoSolicitacao;
 import com.entrevista.api_concessionaria.model.Analise;
@@ -41,13 +42,13 @@ public class AnaliseRepositoryTest {
     public void deveSalvarUmaAnalise() {
         Funcionario funcionario = repoFuncionario.save(Funcionario.builder()
                 .nome("João")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build());
 
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
@@ -80,13 +81,13 @@ public class AnaliseRepositoryTest {
     public void deveAtualizarUmaAnalise() {
         Funcionario funcionario = repoFuncionario.save(Funcionario.builder()
                 .nome("João")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build());
 
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
@@ -128,13 +129,13 @@ public class AnaliseRepositoryTest {
     public void deveDeletarUmaAnalise() {
         Funcionario funcionario = repoFuncionario.save(Funcionario.builder()
                 .nome("João")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build());
 
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());

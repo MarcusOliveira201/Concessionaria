@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.entrevista.api_concessionaria.enums.PerfilFuncionario;
 import com.entrevista.api_concessionaria.model.Funcionario;
 import com.entrevista.api_concessionaria.repository.FuncionarioRepository;
 
@@ -23,7 +24,7 @@ public class FuncionarioRepositoryTest {
     public void deveSalvarUmFuncionario() {
         Funcionario funcionario = Funcionario.builder()
                 .nome("Carlos")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build();
 
@@ -39,7 +40,7 @@ public class FuncionarioRepositoryTest {
     public void deveAtualizarUmFuncionario() {
         Funcionario funcionario = Funcionario.builder()
                 .nome("Carlos")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build();
 
@@ -47,7 +48,7 @@ public class FuncionarioRepositoryTest {
         Long idParaBusca = funcionarioSalvo.getId();
 
         funcionarioSalvo.setNome("Carlos Silva");
-        funcionarioSalvo.setPerfil("Gerente");
+        funcionarioSalvo.setPerfil(PerfilFuncionario.GERENTE);
         funcionarioSalvo.setArea("Supervisão");
         
         repo.save(funcionarioSalvo);
@@ -56,7 +57,7 @@ public class FuncionarioRepositoryTest {
                 .orElseGet(() -> Assertions.fail("Funcionário não encontrado após a atualização"));
 
         Assertions.assertEquals("Carlos Silva", funcionarioAtualizado.getNome());
-        Assertions.assertEquals("Gerente", funcionarioAtualizado.getPerfil());
+        Assertions.assertEquals(PerfilFuncionario.GERENTE, funcionarioAtualizado.getPerfil());
         Assertions.assertEquals("Supervisão", funcionarioAtualizado.getArea());
         Assertions.assertEquals(idParaBusca, funcionarioAtualizado.getId());
     }
@@ -66,7 +67,7 @@ public class FuncionarioRepositoryTest {
     public void deveDeletarUmFuncionario() {
         Funcionario funcionario = Funcionario.builder()
                 .nome("Carlos")
-                .perfil("Técnico")
+                .perfil(PerfilFuncionario.ANALISTA)
                 .area("Manutenção")
                 .build();
 

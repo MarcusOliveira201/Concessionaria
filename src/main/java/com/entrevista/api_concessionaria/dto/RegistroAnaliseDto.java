@@ -1,19 +1,15 @@
 package com.entrevista.api_concessionaria.dto;
 
 import java.math.BigDecimal;
-
-import com.entrevista.api_concessionaria.enums.TipoSolicitacao;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 
-@Data
-public class RegistroAnaliseDto {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public record RegistroAnaliseDto(
     @NotNull(message = "O parecer é obrigatório")
-    private String parecer;
-
+    String parecer,
     @NotNull(message = "O ID do funcionário é obrigatório")
-    private Long funcionarioId;
-
-    private BigDecimal novoValorKwhSolicitado;
+    Long funcionarioId,
+    BigDecimal novoValorKwhSolicitado
+) {
 }

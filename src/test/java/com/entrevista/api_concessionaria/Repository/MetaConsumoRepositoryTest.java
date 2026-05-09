@@ -29,7 +29,7 @@ public class MetaConsumoRepositoryTest {
     public void deveSalvarUmaMetaDeConsumo() {
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
@@ -54,7 +54,7 @@ public class MetaConsumoRepositoryTest {
     public void deveAtualizarUmaMetaDeConsumo() {
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());
@@ -83,7 +83,7 @@ public class MetaConsumoRepositoryTest {
     public void deveDeletarUmaMetaDeConsumo() {
         Consumidor consumidor = repoConsumidor.save(Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build());

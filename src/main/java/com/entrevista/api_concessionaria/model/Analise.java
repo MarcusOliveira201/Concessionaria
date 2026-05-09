@@ -20,11 +20,11 @@ public class Analise {
     private Long id;
     
     @ManyToOne
-    @JoinColumn(name = "solicitacao_id", nullable = false)
+    @JoinColumn(name = "solicitacao_id")
     private Solicitacao solicitacao;
 
     @ManyToOne
-    @JoinColumn(name = "funcionario_id", nullable = false)
+    @JoinColumn(name = "funcionario_id")
     private Funcionario funcionario;
 
     @Column(name ="data_analise")

@@ -23,7 +23,7 @@ public class ConsumidorRepositoryTest {
     public void deveSalvarUmConsumidor() {
         Consumidor consumidor = Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build();
@@ -40,7 +40,7 @@ public class ConsumidorRepositoryTest {
     public void deveAtualizarUmConsumidor() {
         Consumidor consumidor = Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build();
@@ -66,7 +66,7 @@ public class ConsumidorRepositoryTest {
     public void deveDeletarUmConsumidor() {
         Consumidor consumidor = Consumidor.builder()
                 .nome("Maria")
-                .cpf("11122233344")
+                .cpf("11122233334")
                 .email("maria@gmail.com")
                 .endereco("Rua")
                 .build();
