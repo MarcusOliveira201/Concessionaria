@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.entrevista.api_concessionaria.dto.RegistroAnaliseDto;
 import com.entrevista.api_concessionaria.dto.SolicitacaoDto;
-import com.entrevista.api_concessionaria.model.Solicitacao;
 import com.entrevista.api_concessionaria.service.SolicitacoesService;
 
 import jakarta.validation.Valid;
@@ -26,23 +26,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class SolicitacaoController {
 
     @Autowired
-    private SolicitacoesService solicitacoesService;
+    private SolicitacoesService service;
 
     @PostMapping("solicitacoes")
     public ResponseEntity<SolicitacaoDto> salvarUmaSolicitacao(@Valid @RequestBody SolicitacaoDto dto) {
-        SolicitacaoDto solicitacaoSalva = solicitacoesService.salvar(dto);
+        SolicitacaoDto solicitacaoSalva = service.salvar(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(solicitacaoSalva);
     }
     
     @GetMapping("solicitacoes")
     public ResponseEntity<List<SolicitacaoDto>> buscarTodas() {
-        List<SolicitacaoDto> solicitacoes = solicitacoesService.buscar();
+        List<SolicitacaoDto> solicitacoes = service.buscar();
         return ResponseEntity.ok(solicitacoes);
     }
 
     @GetMapping("solicitacoes/{id}")
     public ResponseEntity<SolicitacaoDto> buscarPorId(@PathVariable Long id) {
-        SolicitacaoDto solicitacao = solicitacoesService.buscarPorId(id);
+        SolicitacaoDto solicitacao = service.buscarPorId(id);
         return ResponseEntity.ok(solicitacao);
+    }
+
+    @PostMapping("solicitacoes/{id}/analise")
+    public ResponseEntity<Void> registrarAnalise(@PathVariable Long id,@RequestBody @Valid RegistroAnaliseDto dto) {
+        service.registrarAnalise(id, dto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
