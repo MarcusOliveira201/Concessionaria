@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entrevista.api_concessionaria.dto.DecisaoDto;
+import com.entrevista.api_concessionaria.dto.IndicadoresProjection;
 import com.entrevista.api_concessionaria.dto.RegistroAnaliseDto;
 import com.entrevista.api_concessionaria.dto.SolicitacaoDto;
 import com.entrevista.api_concessionaria.service.SolicitacoesService;
@@ -57,5 +58,10 @@ public class SolicitacaoController {
     public ResponseEntity<?> registrarDecisao(@PathVariable Long id,@RequestBody @Valid DecisaoDto dto) {
         service.registrarDecisao(id, dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("indicadores/solicitacoes")
+    public ResponseEntity<IndicadoresProjection> getIndicadores() {
+        return ResponseEntity.ok(service.buscarIndicadores());
     }
 }

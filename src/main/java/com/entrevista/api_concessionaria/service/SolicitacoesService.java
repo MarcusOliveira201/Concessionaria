@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.entrevista.api_concessionaria.dto.DecisaoDto;
-import com.entrevista.api_concessionaria.dto.IndicadoresDto;
+import com.entrevista.api_concessionaria.dto.IndicadoresProjection;
 import com.entrevista.api_concessionaria.dto.RegistroAnaliseDto;
 import com.entrevista.api_concessionaria.dto.SolicitacaoDto;
 import com.entrevista.api_concessionaria.enums.DecisaoGerente;
@@ -180,8 +180,8 @@ public class SolicitacoesService {
         solicitacao.setStatus(StatusSolicitacao.AGUARDANDO_APROVACAO);
     }
 
-    public IndicadoresDto buscarIndicadores() {
-
+    public IndicadoresProjection buscarIndicadores() {
+        return repo.buscarIndicadores();
     }
 
 }
