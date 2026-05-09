@@ -3,8 +3,13 @@ package com.entrevista.api_concessionaria.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.entrevista.api_concessionaria.enums.StatusSolicitacao;
+import com.entrevista.api_concessionaria.enums.TipoSolicitacao;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,10 +38,12 @@ public class Solicitacao {
     private Date dataAbertura;
 
     @Column(name = "tipo")
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoSolicitacao tipo;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private StatusSolicitacao status;
 
     @ManyToOne
     @JoinColumn(name = "consumidor_id", nullable = false)

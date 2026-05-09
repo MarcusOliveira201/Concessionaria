@@ -29,5 +29,9 @@ public class Funcionario {
     @JoinColumn(name = "funcionario_id")
     private List<Analise> analises;
 
+    @OneToMany
+    @JoinColumn(name = "funcionario_responsavel_id")
+    private List<Solicitacao> solicitacoes;
+
 
 }
