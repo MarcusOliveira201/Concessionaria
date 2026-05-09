@@ -181,7 +181,7 @@ public class SolicitacoesService {
     }
 
     public IndicadoresDto buscarIndicadores() {
-        
+
     }
 
 }
