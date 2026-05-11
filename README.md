@@ -35,6 +35,7 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
 
    <details>
    <summary>Script SQL</summary>
+   
    ```sql
    CREATE TABLE consumidor (
        id BIGSERIAL PRIMARY KEY,
@@ -80,6 +81,7 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
        UNIQUE (consumidor_id, mes, ano)
    );
    ```
+
    </details>
 
 ## Como Usar
