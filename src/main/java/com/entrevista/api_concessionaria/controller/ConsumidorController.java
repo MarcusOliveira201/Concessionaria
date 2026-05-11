@@ -38,7 +38,7 @@ public class ConsumidorController {
     }
 
     @Operation(summary = "Busca Consumidores",description="Busca todos os consumidores que estão salvos.")
-    @GetMapping("funcionarios")
+    @GetMapping("consumidores")
     public ResponseEntity<?> buscarTodas() {
         List<ConsumidorDto> consumidores = service.buscar();
         return ResponseEntity.ok(consumidores);
