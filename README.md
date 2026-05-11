@@ -31,7 +31,7 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
 2. Acesse a raiz do projeto (onde está o arquivo `pom.xml` e `mvnw`).
 3. **Crie as tabelas no banco de dados:**
 
-   <img src="./imagens/modelo-banco.png" alt="Modelagem do Banco de Dados" width="600" />
+   <img src="./imagens/EntrevistaModelagemBanco.drawio.png" alt="Modelagem do Banco de Dados" width="600" />
 
    <details>
    ```sql
@@ -85,10 +85,7 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
 
 Com a aplicação no ar, a forma mais simples e visual de interagir com os endpoints é através do Swagger.
 
-Acesse no seu navegador:
-👉 **http://localhost:8080/swagger-ui.html**
-
-<img src="./imagens/swagger.png" alt="Swagger Logo" width="150" />
+Acesse no navegador: **http://localhost:8080/swagger-ui.html**
 
 ### Fluxo de Exemplo
 
