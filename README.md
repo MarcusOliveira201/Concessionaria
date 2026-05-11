@@ -20,22 +20,17 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
 - **JUnit 5** e **Mockito** para testes de unidade e integração
 - **Maven** como gerenciador de dependências
 
-## Como Rodar o Projeto
-
-### Pré-requisitos
+## Pré-requisitos
 - Um servidor **PostgreSQL** rodando localmente na porta padrão `5432`.
 - Banco de dados criado com o nome `concessionaria_desen`.
 - Usuário `postgres` e senha `concessionaria321` configurados (caso sejam diferentes, ajuste em `src/main/resources/application.properties`).
-
-1. Clone o repositório em sua máquina.
-2. Acesse a raiz do projeto (onde está o arquivo `pom.xml` e `mvnw`).
-3. **Crie as tabelas no banco de dados:**
+- Crie as tabelas no banco de dados:
 
    <img src="./imagens/EntrevistaModelagemBanco.drawio.png" alt="Modelagem do Banco de Dados" width="600" />
 
    <details>
    <summary>Script SQL</summary>
-   
+
    ```sql
    CREATE TABLE consumidor (
        id BIGSERIAL PRIMARY KEY,
