@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.entrevista.api_concessionaria.enums.StatusSolicitacao;
 import com.entrevista.api_concessionaria.enums.TipoSolicitacao;
+import com.entrevista.api_concessionaria.exception.ServiceRunTimeException;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -62,4 +63,10 @@ public class Solicitacao {
     @OneToMany
     @JoinColumn(name = "solicitacao_id")
     private List<Analise> analises;
+
+    public void garantirQuePodeSerAlterada() {
+        if (this.status == StatusSolicitacao.CONCLUIDA) {
+            throw new ServiceRunTimeException("A solicitação está concluída.");
+        }
+    }
 }

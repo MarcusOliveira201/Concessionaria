@@ -8,7 +8,8 @@ import lombok.Builder;
 public record ConsumidorDto(
     String nome,
     String cpf,
-    String email
+    String email,
+    String endereco
 ){
 
     public static ConsumidorDto from(Consumidor consumidor) {
@@ -18,6 +19,7 @@ public record ConsumidorDto(
                 .nome(consumidor.getNome())
                 .cpf(consumidor.getCpf())
                 .email(consumidor.getEmail())
+                .endereco(consumidor.getEndereco())
                 .build();
     }
 }
