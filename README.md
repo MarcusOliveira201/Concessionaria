@@ -34,7 +34,6 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
    <img src="./imagens/EntrevistaModelagemBanco.drawio.png" alt="Modelagem do Banco de Dados" width="600" />
 
    <details>
-   ```sql
    CREATE TABLE consumidor (
        id BIGSERIAL PRIMARY KEY,
        nome VARCHAR(150) NOT NULL,
@@ -56,7 +55,7 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
        tipo VARCHAR(20) NOT NULL,
        status VARCHAR(30) NOT NULL DEFAULT 'ABERTA',
        consumidor_id BIGINT NOT NULL REFERENCES consumidor(id),
-       funcionario_responsavel_id BIGINT REFERENCES funcionario(id),
+       funcionario_responsavel_id BIGINT NOT NULL REFERENCES funcionario(id),
        data_conclusao DATE,
        resposta_final TEXT
    );
@@ -78,7 +77,6 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
        valor_kwh NUMERIC(10, 2) NOT NULL,
        UNIQUE (consumidor_id, mes, ano)
    );
-   ```
    </details>
 
 ## Como Usar
