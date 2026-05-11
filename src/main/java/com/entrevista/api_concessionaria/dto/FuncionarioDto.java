@@ -12,6 +12,7 @@ import lombok.Builder;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record FuncionarioDto(
+    Long id,
     @Schema(example = "Milena")
     @NotBlank(message = "O nome deve ser informado")
     String nome,
@@ -25,6 +26,7 @@ public record FuncionarioDto(
     public static FuncionarioDto from(Funcionario funcionario){
         if (funcionario == null) return null;
         return FuncionarioDto.builder()
+                .id(funcionario.getId())
                 .nome(funcionario.getNome())
                 .area(funcionario.getArea())
                 .perfil(funcionario.getPerfil())
