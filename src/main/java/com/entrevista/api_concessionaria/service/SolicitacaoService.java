@@ -126,19 +126,18 @@ public class SolicitacaoService {
 
     @Transactional
     public void registrarAnalise(Long id, AnaliseDto dto){
+
+        Funcionario analista = funcionarioServ.validarSeEhAnalistaERetorna(dto.funcionarioId());
         
         Solicitacao solicitacao = repo.findById(id)
                 .orElseThrow(() -> new ServiceRunTimeException("Solicitação não encontrada"));
 
         solicitacao.garantirQuePodeSerAlterada();
-        
-        Funcionario funcionario = funcionarioRepo.findById(dto.funcionarioId())
-                .orElseThrow(() -> new ServiceRunTimeException("Funcionário não encontrado"));
 
         Analise novaAnalise = Analise.builder()
                 .parecer(dto.parecer())
                 .dataAnalise(new Date(System.currentTimeMillis()))
-                .funcionario(funcionario)
+                .funcionario(analista)
                 .solicitacao(solicitacao)
                 // .novoValorKwhSolicitado(dto.novoValorKwhSolicitado())
                 .build();
