@@ -80,7 +80,7 @@ public class SolicitacaoController {
 
     @Operation(summary = "Salva uma a análise final para uma solicitação escolhida",
     description = "### Campos Obrigatórios Gerais:\n" +
-                  "* `decisao`: Deve ser `APROVADO` ou `REPROVADO`, se a decisão for aprovada um novo meta consumo será criado.\n" +
+                  "* `decisao`: Deve ser `APROVADA` ou `REPROVADA`, se a decisão for aprovada um novo meta consumo será criado.\n" +
                   "* `respostaFinal`: Texto explicativo que será enviado ao consumidor.\n" +
                   "* `funcionarioId`: ID do gerente/coordenador responsável pela ação.")
     @PostMapping("solicitacoes/{id}/decisao")
