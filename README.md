@@ -1,6 +1,7 @@
 # API Concessionária
 
-Uma concessionária do setor elétrico precisa desenvolver uma API REST para gerenciar solicitações feitas por consumidores.
+Esta API REST foi desenvolvida para gerenciar o fluxo de atendimento de uma concessionária. 
+O sistema centraliza o relacionamento com o cliente, permitindo o registro de solicitações (como reclamações e revisões de metas de consumo), o acompanhamento detalhado de análises e decisões feitas pelos funcionários, além de fornecer indicadores sobre toda a operação.
 
 ## Funcionalidades
 
