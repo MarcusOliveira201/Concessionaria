@@ -34,6 +34,8 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
    <img src="./imagens/EntrevistaModelagemBanco.drawio.png" alt="Modelagem do Banco de Dados" width="600" />
 
    <details>
+   <summary>Script SQL</summary>
+   ```sql
    CREATE TABLE consumidor (
        id BIGSERIAL PRIMARY KEY,
        nome VARCHAR(150) NOT NULL,
@@ -77,11 +79,12 @@ Uma concessionária do setor elétrico precisa desenvolver uma API REST para ger
        valor_kwh NUMERIC(10, 2) NOT NULL,
        UNIQUE (consumidor_id, mes, ano)
    );
+   ```
    </details>
 
 ## Como Usar
 
-Com a aplicação no ar, a forma mais simples e visual de interagir com os endpoints é através do Swagger.
+Com a aplicação no ar utilize os endpoints da API no Swagger.
 
 Acesse no navegador: **http://localhost:8080/swagger-ui.html**
 
