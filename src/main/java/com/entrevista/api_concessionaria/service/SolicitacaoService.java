@@ -158,11 +158,16 @@ public class SolicitacaoService {
             .orElseThrow(() -> new ServiceRunTimeException("Não foi possível encontrar um consumidor com o CPF:" 
             + dto.cpfConsumidor()));
 
+        Funcionario funcionario = funcionarioRepo.findById(dto.funcionarioId())
+            .orElseThrow(() -> new ServiceRunTimeException("Não foi possível encontrar um funcionário com o ID:" 
+            + dto.funcionarioId()));
+
         return Solicitacao.builder()
                 .dataAbertura(new Date(System.currentTimeMillis()))
                 .tipo(dto.tipo())
                 .status(StatusSolicitacao.ABERTA)
                 .consumidor(consumidor)
+                .funcionario(funcionario)
                 .build();
     }
 
